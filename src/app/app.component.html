@@ -1,12 +1,7 @@
-<h2>{{ title }}</h2>
-<hr />
-<h2>{{ user.name }}</h2>
-<hr />
-<button [disabled]="isAppLoading" (click)="disableBtn()">button</button>
-<hr />
-<input type="text" class="inp" (keyup.enter)="changeTextInput($event)" />
-<h3>{{ text }}</h3>
-<hr />
-<input type="text" [(ngModel)]="two_way_binding_test" />
-<hr />
-<app-child [titleParent]="titleParent"></app-child>
+<div class="max-w-screen-xl mx-auto container flex flex-col">
+   <h1 class="text-3xl font-bold text-blue-500 mb-7">{{ title | titlecase }}</h1>
+   <!--   <app-product [product]="products[0]"></app-product>-->
+   <!--   <app-product [product]="products[1]"></app-product>-->
+   <p *ngIf="loading" class="text-center text-lg">Loading...</p>
+   <app-product *ngFor="let product of products" [product]="product"></app-product>
+</div>
