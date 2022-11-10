@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
-import { HttpClient, HttpParams } from '@angular/common/http'
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { IProduct } from '../mock_data/products'
-import { delay, Observable } from 'rxjs'
+import { catchError, delay, Observable, throwError } from 'rxjs'
 
 @Injectable({
    providedIn: 'root',
@@ -15,6 +15,11 @@ export class ProductsService {
             params: new HttpParams({ fromObject: { limit: 5 } }),
             // params: new HttpParams().append('limit', 5),
          })
-         .pipe(delay(2000))
+         .pipe(
+            delay(2000),
+            catchError((e: HttpErrorResponse) => {
+               return throwError(() => e.message)
+            })
+         )
    }
 }
