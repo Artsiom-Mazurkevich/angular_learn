@@ -3,12 +3,20 @@ import { BrowserModule } from '@angular/platform-browser'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { FormsModule } from '@angular/forms'
-import { ProductComponent } from './product/product.component'
-import { HttpClientModule } from '@angular/common/http'
+import { SimpleComponent } from './components/simple/simple.component'
+import { TemplateVariablesComponent } from './components/template-variables/template-variables.component'
+import { NgForLearnComponent } from './components/ng-for-learn/ng-for-learn.component'
+import { NgSwitchLearnComponent } from './components/ng-switch-learn/ng-switch-learn.component'
 
 @NgModule({
-   declarations: [AppComponent, ProductComponent],
-   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+   declarations: [
+      AppComponent,
+      SimpleComponent,
+      TemplateVariablesComponent,
+      NgForLearnComponent,
+      NgSwitchLearnComponent,
+   ],
+   imports: [BrowserModule, AppRoutingModule, FormsModule],
    providers: [],
    bootstrap: [AppComponent],
 })

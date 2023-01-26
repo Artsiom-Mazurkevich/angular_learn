@@ -1,7 +1,24 @@
-<div class="max-w-screen-xl mx-auto container flex flex-col">
+<div class="max-w-screen-xl mx-auto container flex flex-col items-center">
+   <!--Односторонняя привязка-->
    <h1 class="text-3xl font-bold text-blue-500 mb-7">{{ title | titlecase }}</h1>
-   <!--   <app-product [product]="products[0]"></app-product>-->
-   <!--   <app-product [product]="products[1]"></app-product>-->
-   <p *ngIf="loading" class="text-center text-lg">Loading...</p>
-   <app-product *ngFor="let product of products$ | async" [product]="product"></app-product>
+   <!--Односторонняя привязка-->
+   <input type="text" [value]="title" class="inp" />
+   <!-- Односторонняя привязка-->
+   <button class="btn" (click)="addItem('CocaCola', 3.99)">Добавить</button>
+   <ul>
+      <!--Односторонняя привязка-->
+      <li *ngFor="let product of products">{{ product.text }} Price: {{ product.price }}</li>
+   </ul>
+   <!--Двусторонняя привязка-->
+   <input class="inp" [(ngModel)]="name" placeholder="name" />
+   Двустороняя привязка с помощью ngModel
+   <span>{{ name }}</span>
+   <button class="btn" (click)="logEvent($event)">Console.log(event)</button>
+   <hr />
+   <div [class.isRedBox]="isRed">dsfdsfsdf</div>
+   <div [class.isRedBox]="!isRed">dsfdsfsdf</div>
+   <app-simple [userAge]="age" [userName]="name"></app-simple>
+   <app-template-variables></app-template-variables>
+   <app-ng-for-learn></app-ng-for-learn>
+   <app-ng-switch-learn></app-ng-switch-learn>
 </div>

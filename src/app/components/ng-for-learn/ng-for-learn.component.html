@@ -1,0 +1,11 @@
+<div class="mt-7 border px-2">
+   <h2 class="pointer">---------------NgFor-----------------</h2>
+   <ul>
+      <li *ngFor="let name of arrayNames">{{ name }}</li>
+   </ul>
+   <hr class="my-2.5" />
+   <ul *ngFor="let car of arrayData">
+      <li *ngFor="let singleCar of car.list">{{ singleCar.car }}</li>
+   </ul>
+   <h2 class="pointer">---------------NgFor-----------------</h2>
+</div>
